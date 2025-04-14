@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-const JSD = {__proto__:null}
+const JSD = { __proto__: null }
 const text = `===================
 Welcome to JavaScript console of your browser!
 
@@ -41,6 +41,7 @@ JSD.thenExpandMe = {
   hint3: "For example try JSD.readMe3 or JSD.thenExpandMe",
   hint4: "or even JSD.thenExpandMe.hint4 or the same with .hint5",
   hint5: "to directly access deeply nested properties at any depth.",
+  __proto__: null
 }
 
 const text2 = `Now you are ready for the next step!
@@ -50,16 +51,26 @@ Type "run()" below (without quotes but with parentheses) and press Enter.`
 
 JSD.thenExpandMe.nextStep = {
   recommendation: "Try JSD.thenExpandMe.nextStep.abraCadabra to read a magic property!",
-  get abraCadabra() {
-    window.run = run
-    console.log(text2)
+  __proto__: {
+    get abraCadabra() {
+      window.run = run
+      console.log(text2)
+    },
+    __proto__: null
   }
 }
 
 const text3 = `Hooray! You've called the function 'run'.
 Was it your first function call?
 
-<further instructions to be added here>`
+There will be a lot more functions to call, variables to use, objects to expand/collapse and properties to access.
+But let's summarize a few things up to this point:
+
+We're in a JavaScript console of your browser. It's like a chat with a JavaScript interpreter. You write commands here and it tries to execute them for you. If you adhere to the syntax, it will do as you ask.
+
+The text you write here is called the "code". It is viewed as your "input" as soon as you press Enter. And the interpreter's response is called "output". It is shown in the console below your input. Notice the ❯ marker in front of your input and the ❮• marker in front of the console's output. And then there are messages like this one without any markers on the left but with a link on the right leading to the JavaScript Discovery source code. If you click on the link, you will be redirected to the Source tab with this script code shown there and to get back here, you will need to click on the Console tab above. There's a lot of code there, so I'm not sure reading it now would be a good idea. You can always do that later when you're ready.
+
+Call the "run()" function again to continue.`
 
 welcome()
 

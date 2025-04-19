@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JS Discovery
 // @namespace    http://tampermonkey.net/
-// @version      2025-04-14
+// @version      2025-04-19
 // @description  Learn JS naturally in your console just as you would learn Minecraft by playing.
 // @author       Mykhailo "Ninin" Velykoselskyi aka UniBreakfast
 // @match        *://*/*

@@ -23,7 +23,7 @@ I also suggest placing the developer tools on the right side of your browser win
 You can also improve readability by pressing Ctrl +/- (Cmd +/- on Mac) and moving the page/devtools splitter to a 40%/60% position.
 
 Type in 'JSD' below (three capital letters without quotes) and press Enter to find out more.
-Then click on the object output in the console below to see its properties.
+Then click on the object output (wrapped in {...}) in the console below to see its properties.
 You can click on any object in the console more than once to expand/collapse its properties.
 ===================`
 
@@ -71,13 +71,13 @@ But let's summarize a few things up to this point:
 
 We're in the JavaScript console of your browser. It's like a chat with the JavaScript interpreter. You write commands here and it tries to execute them for you. If you adhere to the syntax, it will do as you ask. Otherwise it will gently scream at you with red error messages, which is great, really.
 
-The text you write here is called the "code". It is viewed as your "input" as soon as you press Enter. And the interpreter's response is called "output". It is shown in the console below your input. Notice the ❯ marker before your input and the ❮• marker before the console's output. There are also messages like this one without any markers on the left, but with a link on the right leading to the JavaScript Discovery source code. If you click on the link, you will be redirected to the Source tab with this script code shown there, and to get back here, you will need to click on the Console tab above. There's a lot of code there, so I'm not sure reading it now would be a good idea. You can always do that later when you're ready.
+The text you write here is called the "code". It is viewed as your "input" as soon as you press Enter. And the interpreter's response is called "output". It is shown in the console below your input. Notice the ❯ marker before your input and the ❮• marker before the console's output. There are also messages like this one without any markers on the left, but with a link on the right leading to the JavaScript Discovery source code. If you click on the link, you will be redirected to the Source tab with this script code shown there. And to get back here, you will need to click on the Console tab above. There's a lot of code there, so I'm not sure reading it now would be a good idea. You can always do that later when you're ready.
 
 Call the 'run()' function again to continue.`
 
-const text4 = raw`A bit earlier you typed in 'JSD' and pressed Enter (if you followed my instructions, which you hopefully did). That already was a tiny bit of code, a single token of code, an identifier of a global variable named JSD. And becoming your input that singular variable identifier formed one of the simplest expressions JavaScript interpreter can evaluate - an expression of reading a variable. So it accessed the object value bound to that variable in memory and outputted to the console its representation in a commonly expected format, with curly braces, properties separated by commas, represented by property names and values separated by colons, etc.
+const text4 = raw`A bit earlier you typed in 'JSD' and pressed Enter (if you followed my instructions, which you hopefully did). That already was a tiny bit of code, a single token of code, an identifier of a global variable named JSD. And becoming your input that singular variable identifier formed one of the simplest expressions JavaScript interpreter can evaluate - an expression of reading a variable. So it accessed the object value bound to that variable in memory and outputted to the console its representation in a commonly expected format, with curly braces, properties separated by commas, represented by property names and values separated by colons.
 
-So you've read the values of the properties named 'readMe1', 'readMe2' and 'readMe3' and those values were strings of text. Then you've accessed the value of the property named 'thenExpandMe' by expanding it with a click and that value was another object with its own set of properties named 'hintN' 1 through 5 with another five strings of text as their values. From those hints you've found out that other than by expanding objects in the console you can also access/read their values directly with expressions like 'variableName.propertyName' or even 'variableName.propertyName.propertyName' (with any depth really).
+So you've read the values of the properties named 'readMe1', 'readMe2' and 'readMe3' and those values were strings of text. Then you've accessed the value of the property named 'thenExpandMe' by expanding it with a click. And that value was another object with its own set of properties named 'hintN' 1 through 5 with another five strings of text as their values. From those hints you've found out that other than by expanding objects in the console you can also access/read their values directly with expressions like 'variableName.propertyName' or even 'variableName.propertyName.propertyName' (with any depth really).
 
 In an expression like 'a.b' both 'a' and 'b' are again identifiers, 'a' should identify some existing variable, while 'b' is supposed to identify a property named 'b' of an object bound to the variable named 'a'. And the dot between 'a' and 'b' is called a "property access operator" or "dot notation". So 'a.b' is an expression of reading a property of an object. And the result of evaluating that expression is the value bound to the property named 'b' of the object bound to the variable named 'a'.
 
@@ -104,7 +104,7 @@ An identifier also can be a part of composite expressions like:
   x = y + z
 where a, b, c, fn, x, y and z all are identifiers of variables, properties or functions.
 
-Strictly speaking, variables, properties, or functions (or any other binding entities) do not exist in the code themselves, only the tokens addressing them by name, and those are called identifiers.`
+Strictly speaking, variables, properties, or functions (or any other binding entities) do not exist in the code themselves. In code there's only the tokens addressing them by name, and those are called identifiers.`
 
 terms.operator = `An operator is a token of code formed by a single character or a combination of characters that performs an operation on one or more operands. We used the property access operator '.' and a function call operator '()' in the code above. 
 
@@ -156,13 +156,13 @@ This connection exists within a specific context or "scope". For example, 'JSD' 
 
 In addition to variables and properties, there are other categories of bindings, such as constants, functions, parameters, methods, and classes. While some of these concepts overlap or are closely related, these terms are all heavily used. They differ mainly in how they are declared (often using different keywords) and used.`
 
-terms.string = `A string is one of the basic, primitive data types in JavaScript, used to represent textual data. It is essentially an ordered sequence of zero or more characters. To create a string value in your code, you enclose the sequence of characters within single quotes ('like this'), double quotes ("or like this"), or backticks (\`like this\`). This code representation (the characters plus the surrounding quotes or backticks) is called a "string literal".
+terms.string = `A string is one of the basic, primitive data types in JavaScript, used to represent textual data. It is essentially an ordered sequence of zero or more characters. To create a string value in your code, you enclose the sequence of characters within single quotes ('like this'), double quotes ("like this"), or backticks (\`like this\`). This code representation (the characters plus the surrounding quotes or backticks) is called a "string literal".
 
 You've already encountered many string values. The 'readMe' properties, the hints inside 'JSD.thenExpandMe', and the recommendations in 'JSD.thenExpandMe.nextStep' were all stored as strings. You may have noticed that the console also handily presents string values wrapped in quotes.
 
 Strings are immutable, meaning once a string value is created, the sequence of characters within it cannot be changed directly. Operations that appear to modify a string (like adding text) actually create and return a new string value.`
 
-terms.object = `An object is a complex data type that represents a collection of related data and/or functionality. Objects store their data in properties. A property is a binding entity within the object, associating a "key" (a name, usually a string) with a "value". This value can be any JavaScript data type, including other objects, functions, strings, numbers, etc.
+terms.object = `An object is a complex data type that represents a collection of related data and/or functionality. Objects store their data in properties. A property is a binding entity within the object, associating a "key" (a name, usually a string) with a "value". This value can be any JavaScript data type, including objects, functions, strings, numbers, etc.
 
 You've been interacting primarily with objects so far. The 'JSD' variable holds an object we created to group all the guide's information and features around one point of reference. Its 'thenExpandMe' property holds another object, which in turn has a 'nextStep' property holding yet another object. This nesting demonstrates how objects can contain other objects, enabling complex data structures (sometimes visualized as "trees" or "graphs").
 
@@ -176,7 +176,7 @@ JavaScript has seven primitive value types: strings (text, like "hello"), number
 
 We create values using literals (either as singular tokens or as complex literals made up of multiple tokens) or "constructor functions" (also often called "classes"). But we can get values from other expressions too.`
 
-terms.function = `A function is a fundamental building block in JavaScript, essentially a reusable block of code designed to perform a specific task or calculate a value. Functions allow you to encapsulate a piece of logic, often assigning it a name via a binding (an identifier), so you can execute that logic multiple times without rewriting the code, simply by "calling" the function.
+terms.function = `A function is a fundamental building block in JavaScript. Essentially, it's a reusable block of code designed to perform a specific task or calculate a value. Functions allow you to encapsulate a piece of logic, often assigning it a name via a binding (an identifier), so you can execute that logic multiple times without rewriting the code, simply by "calling" the function.
 
 You call or "invoke" a function using its name followed by parentheses '()' (function call operator). Inside the parentheses, you can optionally pass arguments (values) for the function to work with, though the 'run' function you've used doesn't require any arguments.
 
